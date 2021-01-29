@@ -205,7 +205,7 @@ _rust/libnewsboat/tests_. Rust's test runner is multi-threaded, so we use
 integration testing when we want to do the checks in a separate process.
 
 In addition to `TMPDIR=/dev/shm make -j5 PROFILE=1 check` incantation that's
-already explained in the contributing guidelines, you should know about
+already explained in the contributing guidelines, you should know about the
 `NEWSBOAT_RUN_IGNORED_TESTS` variable. Like `PROFILE`, it can be set to `1`.
 When set, it enables tests that require some additional prerequisites:
 
