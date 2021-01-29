@@ -2073,9 +2073,10 @@ mod tests {
         // "вау °±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃ": a mix of Cyrillic (unsupported by
         // ISO-8859-1) and ISO-8859-1 characters.
         //
-        // This has to be a vector because Rust 1.46.0 doesn't support comparisons for arrays
-        // longer than 32 elements.
-        let input = vec![
+        // Have to specify the type explicitly, otherwise Rust 1.46.0 remembers the size of the
+        // array and fails to compile `assert_ne!` below, as it can't compare arrays longer than 32
+        // elements.
+        let input: &[u8] = &[
             0xd0, 0xb2, 0xd0, 0xb0, 0xd1, 0x83, 0x20, 0xc2, 0xb0, 0xc2, 0xb1, 0xc2, 0xb2, 0xc2,
             0xb3, 0xc2, 0xb4, 0xc2, 0xb5, 0xc2, 0xb6, 0xc2, 0xb7, 0xc2, 0xb8, 0xc2, 0xb9, 0xc2,
             0xba, 0xc2, 0xbb, 0xc2, 0xbc, 0xc2, 0xbd, 0xc2, 0xbe, 0xc2, 0xbf, 0xc3, 0x80, 0xc3,
